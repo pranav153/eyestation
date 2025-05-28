@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye Station Opticals</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+
+  <header>
+  <nav>
+    <div class="logo">Eye Station</div>
+    
+    <!-- Hamburger for mobile -->
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+    
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="hero" id="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Clear Vision, Bright Future</h1>
+    <p>Your trusted optical partner in eye care</p>
+    <a href="contact.html">Book an Appointment</a>
+  </div>
+</section>
+
+<section id="about" data-aos="fade-up">
+  <h2>About Eye Station</h2>
+  <p>We are committed to providing the best optical solutions with top-notch customer service. From eye exams to premium eyewear, Eye Station is your go-to destination.</p>
+</section>
+
+<section id="services" data-aos="fade-up">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service">
+      <i class="fas fa-glasses"></i>
+      <h3>Eyewear</h3>
+      <p>Trendy, affordable, and premium quality frames and sunglasses.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-eye"></i>
+      <h3>Eye Testing</h3>
+      <p>Accurate computerized eye exams with expert consultation.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-prescription"></i>
+      <h3>Prescription Lenses</h3>
+      <p>Custom lenses for your specific vision needs with top brands.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" data-aos="fade-up">
+  <p>Contact us at <a href="mailto:info@eyestation.com">info@eyestation.com</a> | +91 98765 43210</p>
+  <p>&copy; 2025 Eye Station Opticals</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const hero = document.getElementById('hero');
+
+  const images = [
+    'https://www.shutterstock.com/image-vector/vector-composition-modern-eye-glasses-260nw-466179431.jpg',
+    'https://t4.ftcdn.net/jpg/02/08/87/65/360_F_208876597_95kY23jTMOdcuhgjO3vHIbi1djvKf8Ke.jpg',
+    'https://thumbs.dreamstime.com/b/optical-shop-woman-near-showcase-looking-eyeglasses-optical-shop-woman-near-showcase-looking-eyeglasses-choosing-eyewear-127660682.jpg'
+  ];
+
+  // Preload images
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+
+  let current = 0;
+  hero.style.backgroundImage = `url('${images[current]}')`;
+
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    hero.classList.remove('fade-bg'); // reset animation
+    void hero.offsetWidth; // trigger reflow
+    hero.style.backgroundImage = `url('${images[current]}')`;
+    hero.classList.add('fade-bg');
+  }, 5000);
+</script>
+
+
+</body>
+</html>
